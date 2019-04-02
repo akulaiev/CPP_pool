@@ -10,20 +10,24 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC = megaphone.cpp
+SRC = Contact.class.cpp \
+	Phonebook.class.cpp	\
+	main.cpp
 OBJ_DIR = ./obj/
 OBJ = $(addprefix $(OBJ_DIR),$(SRC:.cpp=.o))
-NAME = megaphone
+NAME = MAP
 CFLAG = -Wall -Wextra -Werror
 CC = clang++
+INC = includes/Contact.class.hpp \
+	includes/Phonebook.class.hpp
 
 all:  $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJ)
 	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
-		
-$(OBJ_DIR)%.o:%.cpp
-	$(CC) $(CFLAG) -c $< -o $@
+
+$(OBJ_DIR)%.o:%.cpp $(INC)
+	$(CC) $(CFLAG) -I/includes -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
@@ -45,5 +49,3 @@ commit:
 	git add -A
 	git commit -m "$(MSG)"
 	git push
-
-vpath %.c $(SRC_DIR)
