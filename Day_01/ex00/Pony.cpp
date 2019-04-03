@@ -19,6 +19,7 @@ Pony::Pony		(std::string name)
 		this->type = "ground pony";
 	if (name == "Applejack")
 		this->type = "ground pony";
-	std::cout << "It appears you've created " << name << " instance in constructor!"
+	std::cout << "It appears you've created " << name <<
+	" instance in constructor!"
 	<< std::endl;
 }
