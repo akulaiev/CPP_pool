@@ -14,6 +14,16 @@ Fixed::Fixed	(Fixed const & inst)
 	*this = inst;
 }
 
+Fixed::Fixed	(int const val)
+{
+
+}
+
+Fixed::Fixed	(float const val)
+{
+	
+}
+
 Fixed::~Fixed	(void) {}
 
 Fixed &			Fixed::operator=(Fixed const & inst)
@@ -33,4 +43,14 @@ int 			Fixed::getRawBits(void) const
 void 			Fixed::setRawBits(int const raw)
 {
 	this->_fixed_point = raw;
+}
+
+float			Fixed::toFloat(void) const
+{
+
+}
+
+int				Fixed::toInt(void) const
+{
+	
 }
