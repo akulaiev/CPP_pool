@@ -1,5 +1,6 @@
 {
     "files.associations": {
+		"*.tpp": "cpp",
 		"__bit_reference": "cpp",
 		"__config": "cpp",
 		"__debug": "cpp",
@@ -27,6 +28,7 @@
 		"exception": "cpp",
 		"functional": "cpp",
 		"initializer_list": "cpp",
+		"iomanip": "cpp",
 		"ios": "cpp",
 		"iosfwd": "cpp",
 		"iostream": "cpp",
@@ -39,6 +41,7 @@
 		"new": "cpp",
 		"ostream": "cpp",
 		"ratio": "cpp",
+		"sstream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
 		"string": "cpp",
@@ -47,8 +50,7 @@
 		"tuple": "cpp",
 		"type_traits": "cpp",
 		"typeinfo": "cpp",
-		"utility": "cpp",
-		"iomanip": "cpp",
-		"sstream": "cpp"
-	}
+		"utility": "cpp"
+	},
+	"terminal.integrated.shell.windows": "cmd.exe"
 }
