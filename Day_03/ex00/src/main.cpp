@@ -18,5 +18,7 @@ int 	main(void)
 	int i = -1;
 	while (++i <= 5)
 		new_game.vaulthunter_dot_exe(target[i]);
+	new_game.takeDamage(15);
+	new_game.beRepaired(10);
 	return 0;
 }

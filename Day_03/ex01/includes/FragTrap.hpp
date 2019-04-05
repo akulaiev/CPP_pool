@@ -18,8 +18,25 @@ public:
 	void				takeDamage(unsigned int amount);
 	void				beRepaired(unsigned int amount);
 	void				vaulthunter_dot_exe(std::string const & target);
-	int					get_energy(void);
+	
 	int					get_HP(void);
+	int					get_MAX_HP(void);
+	int					get_energy(void);
+	int					get_MAX_ENERGY(void);
+	int					get_level(void);
+	int					get_melle(void);
+	int					get_ranged(void);
+	int					get_armor(void);
+	std::string			get_name(void);
+	void				set_HP(int val);
+	void				set_MAX_HP(int val);
+	void				set_energy(int val);
+	void				set_MAX_ENERGY(int val);
+	void				set_level(int val);
+	void				set_melle(int val);
+	void				set_ranged(int val);
+	void				set_armor(int val);
+	void				set_name(std::string name);
 private:
 
 	int					_HP;

@@ -71,16 +71,6 @@ void			ScavTrap::beRepaired(unsigned int amount)
 	this->_HP = fmin(this->_MAX_HP, this->_HP + amount);
 }
 
-int				ScavTrap::get_energy(void)
-{
-	return (this->_energy);
-}
-
-int				ScavTrap::get_HP(void)
-{
-	return (this->_HP);
-}
-
 void			ScavTrap::challengeNewcomer(std::string const & target)
 {
 	std::string		challenge[8];
@@ -98,4 +88,94 @@ void			ScavTrap::challengeNewcomer(std::string const & target)
 	challenge[7] = " start jogging and really do that!";
 	i = rand() % 8;
 	std::cout << challenge[i] << std::endl;
+}
+
+int				ScavTrap::get_HP(void)
+{
+	return (this->_HP);
+}
+
+int				ScavTrap::get_MAX_HP(void)
+{
+	return (this->_MAX_HP);
+}
+
+int				ScavTrap::get_energy(void)
+{
+	return (this->_energy);
+}
+
+int				ScavTrap::get_MAX_ENERGY(void)
+{
+	return (this->_MAX_energy);
+}
+
+int				ScavTrap::get_level(void)
+{
+	return (this->_lvl);
+}
+
+int				ScavTrap::get_melle(void)
+{
+	return (this->_melle);
+}
+
+int				ScavTrap::get_ranged(void)
+{
+	return (this->_ranged);
+}
+
+int				ScavTrap::get_armor(void)
+{
+	return (this->_armor);
+}
+
+std::string		ScavTrap::get_name(void)
+{
+	return (this->_name);
+}
+
+void			ScavTrap::set_HP(int val)
+{
+	this->_HP = val;
+}
+
+void			ScavTrap::set_MAX_HP(int val)
+{
+	this->_MAX_HP = val;
+}
+
+void			ScavTrap::set_energy(int val)
+{
+	this->_energy = val;
+}
+
+void			ScavTrap::set_MAX_ENERGY(int val)
+{
+	this->_MAX_energy = val;
+}
+
+void			ScavTrap::set_level(int val)
+{
+	this->_lvl = val;
+}
+
+void			ScavTrap::set_melle(int val)
+{
+	this->_melle = val;
+}
+
+void			ScavTrap::set_ranged(int val)
+{
+	this->_ranged = val;
+}
+
+void			ScavTrap::set_armor(int val)
+{
+	this->_armor = val;
+}
+
+void			ScavTrap::set_name(std::string name)
+{
+	this->_name = name;
 }

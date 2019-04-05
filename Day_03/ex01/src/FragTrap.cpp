@@ -115,3 +115,93 @@ void			FragTrap::vaulthunter_dot_exe(std::string const & target)
 	else
 		std::cout << this->_name << " is out of energy :( " << std::endl;
 }
+
+int				FragTrap::get_HP(void)
+{
+	return (this->_HP);
+}
+
+int				FragTrap::get_MAX_HP(void)
+{
+	return (this->_MAX_HP);
+}
+
+int				FragTrap::get_energy(void)
+{
+	return (this->_energy);
+}
+
+int				FragTrap::get_MAX_ENERGY(void)
+{
+	return (this->_MAX_energy);
+}
+
+int				FragTrap::get_level(void)
+{
+	return (this->_lvl);
+}
+
+int				FragTrap::get_melle(void)
+{
+	return (this->_melle);
+}
+
+int				FragTrap::get_ranged(void)
+{
+	return (this->_ranged);
+}
+
+int				FragTrap::get_armor(void)
+{
+	return (this->_armor);
+}
+
+std::string		FragTrap::get_name(void)
+{
+	return (this->_name);
+}
+
+void			FragTrap::set_HP(int val)
+{
+	this->_HP = val;
+}
+
+void			FragTrap::set_MAX_HP(int val)
+{
+	this->_MAX_HP = val;
+}
+
+void			FragTrap::set_energy(int val)
+{
+	this->_energy = val;
+}
+
+void			FragTrap::set_MAX_ENERGY(int val)
+{
+	this->_MAX_energy = val;
+}
+
+void			FragTrap::set_level(int val)
+{
+	this->_lvl = val;
+}
+
+void			FragTrap::set_melle(int val)
+{
+	this->_melle = val;
+}
+
+void			FragTrap::set_ranged(int val)
+{
+	this->_ranged = val;
+}
+
+void			FragTrap::set_armor(int val)
+{
+	this->_armor = val;
+}
+
+void			FragTrap::set_name(std::string name)
+{
+	this->_name = name;
+}

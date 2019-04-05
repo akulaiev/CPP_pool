@@ -19,9 +19,13 @@ int 	main(void)
 	int i = -1;
 	while (++i <= 4)
 		new_game.vaulthunter_dot_exe(target[i]);
+	new_game.takeDamage(15);
+	new_game.beRepaired(10);
 	ScavTrap game_two("ScavTrap");
 	i = -1;
 	while (++i <= 4)
 		game_two.challengeNewcomer(target[i]);
+	game_two.takeDamage(15);
+	game_two.beRepaired(10);
 	return 0;
 }
