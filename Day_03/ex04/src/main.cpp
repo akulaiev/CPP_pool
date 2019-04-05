@@ -1,6 +1,9 @@
 
 #include "../includes/FragTrap.hpp"
 #include "../includes/ScavTrap.hpp"
+#include "../includes/NinjaTrap.hpp"
+#include "../includes/ClapTrap.hpp"
+#include "../includes/SuperTrap.hpp"
 #include <iostream>
 
 int 	main(void)
@@ -12,19 +15,15 @@ int 	main(void)
 	target[2] = "Sauron";
 	target[3] = "Lex Luthor";
 	target[4] = "Thanos";
-
-	FragTrap new_game("FragTrap");
+	SuperTrap st("SuperTrap");
 	srand(time(NULL));
 	int i = -1;
 	while (++i <= 4)
-		new_game.vaulthunter_dot_exe(target[i]);
-	new_game.takeDamage(15);
-	new_game.beRepaired(10);
-	ScavTrap game_two("ScavTrap");
-	i = -1;
-	while (++i <= 4)
-		game_two.challengeNewcomer(target[i]);
-	game_two.takeDamage(15);
-	game_two.beRepaired(10);
+		st.vaulthunter_dot_exe(target[i]);
+	st.takeDamage(15);
+	st.beRepaired(10);
+	NinjaTrap ninja("SuperTrap");
+	st.ninjaShoebox(ninja);
+	st.beRepaired(10);
 	return 0;
 }
