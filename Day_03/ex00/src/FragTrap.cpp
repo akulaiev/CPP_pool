@@ -103,7 +103,7 @@ void			FragTrap::vaulthunter_dot_exe(std::string const & target)
 	{&FragTrap::meleeAttack, &FragTrap::rangedAttack};
 	j = rand() % 51;
 	j = j % 2;
-	if (this->_energy >= 0)
+	if (this->_energy > 0)
 	{
 		if (i == 6 || i == 7 || i == 9 || i == 10 ||
 		i == 3)
