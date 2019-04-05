@@ -1,17 +1,18 @@
 #include "../includes/FragTrap.hpp"
+#include "../includes/ClapTrap.hpp"
 #include <iostream>
 #include <cmath>
 
 FragTrap::FragTrap	(void)
 {
-	std::cout << "FragTrap: THE DEFAULT CONSTRUCTOR is called.\
+	std::cout << "Frag: THE DEFAULT CONSTRUCTOR is called.\
 Booting sequence complete... Hello! I am your new steward bot."
 	<< std::endl;
 }
 
 FragTrap::FragTrap	(FragTrap const & inst)
 {
-	std::cout << "FragTrap: Look out everybody! Things are about to\
+	std::cout << "Frag: Look out everybody! Things are about to\
 get awesome! Oh, and by the way, THE COPY CONSTRUCTOR is called" <<
 	std::endl;
 	*this = inst;
@@ -19,15 +20,12 @@ get awesome! Oh, and by the way, THE COPY CONSTRUCTOR is called" <<
 
 FragTrap::FragTrap	(std::string name)
 {
-	std::cout << std::endl << "FragTrap: Directive one: Protect humanity! Directive two: use \
+	std::cout << std::endl << "Frag: Directive one: Protect humanity! Directive two: use \
 THE PARAMETRIC CONSTRUCTOR.\nDirective three: Dance!" <<
 	std::endl << std::endl;
 
-	this->_HP = 100;
-	this->_MAX_HP = 100;
 	this->_energy = 100;
 	this->_MAX_energy = 100;
-	this->_lvl = 1;
 	this->_melle = 30;
 	this->_ranged = 20;
 	this->_armor = 5;
@@ -36,47 +34,8 @@ THE PARAMETRIC CONSTRUCTOR.\nDirective three: Dance!" <<
 
 FragTrap::~FragTrap	(void)
 {
-	std::cout << std::endl << "FragTrap: The fight is over!!! The enemy is \
+	std::cout << std::endl << "Frag: The fight is over!!! The enemy is \
 DESTRUCTED!" << std::endl << std::endl;
-}
-
-void			FragTrap::rangedAttack(std::string const & target)
-{
-	std::cout << this->_name << target <<
-	" at range, causing " << this->_ranged << " points of damage!" <<
-	std::endl;
-}
-
-void			FragTrap::meleeAttack(std::string const & target)
-{
-	std::cout << this->_name << target <<
-	" at melee, causing " << this->_melle << " points of damage!" <<
-	std::endl;
-}
-
-void			FragTrap::takeDamage(unsigned int amount)
-{
-	std::cout << this->_name << " is damaged with  " <<
-	amount << " points of damage!" << std::endl;
-	this->_HP = fmax(0, this->_HP - amount +
-	this->_armor);
-}
-
-void			FragTrap::beRepaired(unsigned int amount)
-{
-	std::cout << this->_name << " is repaided with  " <<
-	amount << " health points!" << std::endl;
-	this->_HP = fmin(this->_MAX_HP, this->_HP + amount);
-}
-
-int				FragTrap::get_energy(void)
-{
-	return (this->_energy);
-}
-
-int				FragTrap::get_HP(void)
-{
-	return (this->_HP);
 }
 
 void			FragTrap::vaulthunter_dot_exe(std::string const & target)
