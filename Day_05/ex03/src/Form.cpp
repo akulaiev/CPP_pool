@@ -2,16 +2,17 @@
 #include "../includes/Form.hpp"
 #include <iostream>
 
-Form::Form	(void) : _name("F1"),
-_grade_sign(100), _grade_execute(130) {}
+Form::Form	(void) : _name("F1"), _signature_status(0),
+_execution_status(0), _grade_sign(100), _grade_execute(130)  {}
 
-Form::Form	(Form const & inst) : _name("F1"),
-_grade_sign(100), _grade_execute(130)
+Form::Form	(Form const & inst) : _name("F1"), _signature_status(0),
+_execution_status(0), _grade_sign(100), _grade_execute(130)
 {
 	*this = inst;
 }
 
 Form::Form	(std::string name, int gradeSign, int gradeExe) : _name(name),
+_signature_status(0), _execution_status(0),
 _grade_sign(gradeSign), _grade_execute(gradeExe)
 {
 	if (gradeSign > 150)

@@ -11,8 +11,8 @@ int 	main(void)
 	Intern d;
 
 	Form *a1 = a.makeForm("Shrubbery", "Unit Factory");
-	Form *a2 = b.makeForm("Presidential", "Bob");
-	Form *a3 = c.makeForm("Robotomy", "Bill");
+	Form *a2 = b.makeForm("Presidential", "Request 1");
+	Form *a3 = c.makeForm("Robotomy", "Request 2");
 	Form *a4 = d.makeForm("Bla", "Bla");
 	std::cout << std::endl << *a1 << std::endl;
 	std::cout << *a2 << std::endl;
