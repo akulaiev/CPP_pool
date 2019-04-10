@@ -3,16 +3,16 @@
 #include <iostream>
 
 Form::Form	(void) : _name("F1"), _signature_status(0),
-_execution_status(0), _grade_sign(100), _grade_execute(130)  {}
+_grade_sign(100), _grade_execute(130)  {}
 
 Form::Form	(Form const & inst) : _name("F1"), _signature_status(0),
-_execution_status(0), _grade_sign(100), _grade_execute(130)
+_grade_sign(100), _grade_execute(130)
 {
 	*this = inst;
 }
 
 Form::Form	(std::string name, int gradeSign, int gradeExe) : _name(name),
-_signature_status(0), _execution_status(0),
+_signature_status(0),
 _grade_sign(gradeSign), _grade_execute(gradeExe)
 {
 	if (gradeSign > 150)
@@ -35,11 +35,6 @@ std::string			Form::getName() const
 bool				Form::getSignatureStatus() const
 {
 	return (_signature_status);
-}
-
-bool				Form::getExecutionStatus() const
-{
-	return (_execution_status);
 }
 
 int 				Form::getGradeSign() const
@@ -156,9 +151,7 @@ Form &				Form::operator=(Form const & inst)
 void				Form::execute(Bureaucrat const & executor) const
 {
 	if (_signature_status == true && executor.getGrade() <= _grade_execute)
-	{
 		action("Unit Factory");
-	}
 	else if (_signature_status == false)
 		throw(FormNotSigned());
 	else if (executor.getGrade() > _grade_execute)
@@ -169,18 +162,12 @@ std::ostream &		operator<<(std::ostream & os,
 Form & inst)
 {
 	std::string status_signed;
-	std::string status_executed;
 
 	if (inst.getSignatureStatus() == true)
 		status_signed = "signed";
 	else
 		status_signed = "not signed";
-	if (inst.getExecutionStatus() == true)
-		status_executed = "executed";
-	else
-		status_executed = "not executed";
 	return (os << inst.getName() + " form: a grade, needed to sign it is - " << inst.getGradeSign()
 	<< ". A grade, needed to execute it is - " << inst.getGradeExecute() << "." << std::endl) <<
-	"Form's signature status is: " << status_signed << "." << std::endl <<
-	"Form's execution status is: " << status_executed << "." << std::endl;
+	"Form's signature status is: " << status_signed << "." << std::endl;
 }

@@ -17,7 +17,6 @@ public:
 	Form &				operator=(Form const & inst);
 	std::string			getName() const;
 	bool				getSignatureStatus() const;
-	bool				getExecutionStatus() const;
 	int					getGradeSign() const;
 	int					getGradeExecute() const;
 
@@ -58,7 +57,6 @@ private:
 
 	std::string const		_name;
 	bool					_signature_status;
-	bool					_execution_status;
 	int	const				_grade_sign;
 	int	const				_grade_execute;
 };

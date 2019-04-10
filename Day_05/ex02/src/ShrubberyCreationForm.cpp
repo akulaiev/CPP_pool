@@ -64,12 +64,7 @@ ShrubberyCreationForm & inst)
 		status_signed = "signed";
 	else
 		status_signed = "not signed";
-	if (inst.getExecutionStatus() == true)
-		status_executed = "executed";
-	else
-		status_executed = "not executed";
 	return (os << inst.getName() + " form: a grade, needed to sign it is - " << inst.getGradeSign()
 	<< ". A grade, needed to execute it is - " << inst.getGradeExecute() << "." << std::endl) <<
-	"Form's signature status is: " << status_signed << "." << std::endl <<
-	"Form's execution status is: " << status_executed << "." << std::endl;
+	"Form's signature status is: " << status_signed << "." << std::endl;
 }
