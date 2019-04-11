@@ -1,60 +1,70 @@
 
-#include "../includes/Bureaucrat.hpp"
-#include "../includes/Form.hpp"
-#include "../includes/ShrubberyCreationForm.hpp"
-#include "../includes/RobotomyRequestForm.hpp"
-#include "../includes/PresidentialPardonForm.hpp"
-#include "../includes/Intern.hpp"
-#include "../includes/OfficeBlock.hpp"
-#include "../includes/CentralBureaucracy.hpp"
+#include "../includes/Data.hpp"
 #include <iostream>
-#include <cstdlib>
+#include <sstream>
+
+void *	serialize(void)
+{
+	std::string			res;
+	std::stringstream	tmp;
+	char				str0[9];
+	char				str1[9];
+	int					num;
+	char				alph_num[63] =
+	"abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+	srand(time(NULL));
+	int iter = -1;
+	while (++iter < 8)
+		str0[iter] = alph_num[rand() % 62];
+	str0[8] = '\0';
+	iter = -1;
+	while (++iter < 8)
+		str1[iter] = alph_num[rand() % 62];
+	str1[8] = '\0';
+	num = rand() % 2147483646;
+	tmp << str0 << num << str1;
+	res = tmp.str();
+	char *c_res = new char[res.length() + 1];
+	strcpy(c_res, res.c_str());
+	return (reinterpret_cast<void*>(c_res));
+}
+
+Data *	deserialize(void *raw)
+{
+	Data		*data = new Data;
+	char		str0[9];
+	char		str1[9];
+	int			num;
+
+	char *c_data = reinterpret_cast<char*>(raw);
+	int i = -1;
+	while (++i < 8)
+		str0[i] = c_data[i];
+	str0[8] = '\0';
+	int j = strlen(c_data);
+	i = 9;
+	while (--i > -1)
+	{
+		str1[i] = c_data[j];
+		j--;
+	}
+	str1[8] = '\0';
+	num = atoi(&c_data[8]);
+	data->n = num;
+	std::string	st1(str0);
+	std::string	st2(str1);
+	data->s1 = st1;
+	data->s2 = st2;
+	return (data);
+}
 
 int 	main(void)
 {
-	CentralBureaucracy buro;
-	
-	srand(time(NULL));
-
-	std::string name_e[20];
-	name_e[0] = "Andrew";
-	name_e[1] = "Aaron";
-	name_e[2] = "Anton";
-	name_e[3] = "Bill";
-	name_e[4] = "Bob";
-	name_e[5] = "Burry";
-	name_e[6] = "Buddy";
-	name_e[7] = "Chad";
-	name_e[8] = "Craig";
-	name_e[9] = "Dan";
-	std::string name_s[20];
-	name_s[0] = "Don";
-	name_s[1] = "Dag";
-	name_s[2] = "Dirk";
-	name_s[3] = "Drake";
-	name_s[4] = "Kris";
-	name_s[5] = "Sean";
-	name_s[6] = "Rob";
-	name_s[7] = "James";
-	name_s[8] = "Lee";
-	name_s[9] = "Matt";
-
-	int i = -1;
-	int j = -1;
-	while (++i < 20 && ++j)
-	{
-		if (j == 9)
-			j = 0;
-		buro.feedExecutor(*new Bureaucrat(name_e[i], rand() % 150 + 1));
-		buro.feedSigner(*new Bureaucrat(name_s[i], rand() % 150 + 1));
-	}
-	i = -1;
-	while (++i < 39)
-	{
-		int k = rand() % 9;
-		int l = rand() % 9;
-		std::string target = name_s[k] + name_e[l];
-		buro.queueUp(target);
-	}
-	buro.doBureaucracy();
+	void *data = serialize();
+	std::cout << "Concantinated data: " << static_cast<char*>(data) << std::endl;
+	Data *data_struct = deserialize(data);
+	std::cout << "S1 in data struct: " << data_struct->s1 << std::endl;
+	std::cout << "NUM in data struct: " << data_struct->n << std::endl;
+	std::cout << "S2 in data struct: " << data_struct->s2 << std::endl;
 }

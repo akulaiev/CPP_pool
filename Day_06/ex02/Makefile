@@ -10,14 +10,21 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	main.cpp
+SRC =	main.cpp\
+		Base.cpp\
+		A.cpp\
+		B.cpp\
+		C.cpp
 SRC_DIR = ./src/
 OBJ_DIR = ./obj/
 OBJ = $(addprefix $(OBJ_DIR),$(SRC:.cpp=.o))
-NAME = Serialize
+NAME = identify
 CFLAG = -Wall -Wextra -Werror
 CC = clang++
-INC =	./includes/Data.hpp
+INC =	./includes/Base.hpp\
+		./includes/A.hpp\
+		./includes/B.hpp\
+		./includes/C.hpp
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJ)
