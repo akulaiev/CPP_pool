@@ -4,14 +4,14 @@
 
 int 	main(void)
 {
-	Span sp(10);
+	Span sp(5);
 	try
 	{
-		sp.addNumber(-5);
 		sp.addNumber(5);
-		sp.addNumber(15);
 		sp.addNumber(3);
-		sp.addNumber(21);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
 	}
 	catch(Span::TooManyObj & e)
 	{
